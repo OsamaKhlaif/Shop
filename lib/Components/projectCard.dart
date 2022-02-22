@@ -13,9 +13,12 @@ class ProjectCard extends StatelessWidget {
             child: Row(
           children: [
             Container(
-                width: 50,
-                height: 50,
-                padding: EdgeInsets.all(10),
+              color: Colors.blue,
+                width: 30,
+                height: 30,
+                padding: EdgeInsets.all(5),
+                margin: EdgeInsets.all(10),
+                
                 child: Image.network(
                     'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/VisualEditor_-_Icon_-_Menu.svg/768px-VisualEditor_-_Icon_-_Menu.svg.png')),
             Text(
