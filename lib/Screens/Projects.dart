@@ -28,6 +28,8 @@ class ProjectsState extends State<Projects> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Projects'),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
         ),
         body: Container(
             child: FutureBuilder(

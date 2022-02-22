@@ -261,6 +261,8 @@ class Todos extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
+           backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
         ),
         body: Container(
             child:
