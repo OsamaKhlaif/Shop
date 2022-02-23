@@ -4,12 +4,13 @@ class TodoCard extends StatelessWidget {
   var name;
   var status;
   var owner_image;
+
   TodoCard(this.name, this.status, this.owner_image);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             border: Border(
                 bottom: BorderSide(width: 0.1, color: Colors.grey),
                 top: BorderSide(width: 0.1, color: Colors.grey))),
@@ -22,27 +23,41 @@ class TodoCard extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                        margin: EdgeInsets.all(10),
-                        height: 45,
-                        width: 45,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50.0),
-                          child: Image.network(
-                            owner_image,
-                            width: 45,
-                            height: 45,
-                            fit: BoxFit.cover,
-                          ),
+                        margin: const EdgeInsets.only(left: 8),
+                        height: 60,
+                        width: 60,
+                        child: Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.grey[500]),
+                              margin: EdgeInsets.only(top: 7, bottom: 7),
+                              width: 3,
+                             
+                            ),
+                            Container(
+                                padding: EdgeInsets.only(left: 5),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  child: Image.network(
+                                    owner_image,
+                                    width: 45,
+                                    height: 45,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ))
+                          ],
                         )),
                     Container(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 5),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             name,
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Text(
                             status,
@@ -61,13 +76,15 @@ class TodoCard extends StatelessWidget {
                   child:
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     IconButton(
-                      icon: Icon(Icons.attach_file),
+                      splashRadius: 25,
+                      icon: const Icon(Icons.attach_file),
                       iconSize: 20,
                       color: Colors.grey,
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: Icon(Icons.more_vert),
+                      splashRadius: 25,
+                      icon: const Icon(Icons.more_vert),
                       iconSize: 20,
                       color: Colors.grey,
                       onPressed: () {},

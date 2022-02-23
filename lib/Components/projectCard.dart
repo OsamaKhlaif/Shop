@@ -2,28 +2,31 @@ import 'package:flutter/material.dart';
 
 class ProjectCard extends StatelessWidget {
   var projectsName;
-  
-  ProjectCard(this.projectsName,);
+
+  ProjectCard(
+    this.projectsName,
+  );
 
   @override
   Widget build(BuildContext context) {
-      return Card(
-      
-      elevation: 5,
-            child: Row(
+    return Container(
+        decoration: const BoxDecoration(
+            border: Border(
+                bottom: BorderSide(width: 0.1, color: Colors.grey),
+                top: BorderSide(width: 0.1, color: Colors.grey))),
+        child: Row(
           children: [
             Container(
-              color: Colors.blue,
+                decoration: BoxDecoration(
+                    color: Colors.blue[200],
+                    borderRadius: BorderRadius.circular(5)),
                 width: 30,
                 height: 30,
-                padding: EdgeInsets.all(5),
-                margin: EdgeInsets.all(10),
-                
-                child: Image.network(
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/VisualEditor_-_Icon_-_Menu.svg/768px-VisualEditor_-_Icon_-_Menu.svg.png')),
+                margin: const EdgeInsets.all(10),
+                child: Icon(Icons.menu)),
             Text(
               projectsName,
-              style: TextStyle(),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
         ));
