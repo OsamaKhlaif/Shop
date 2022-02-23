@@ -12,15 +12,11 @@ class TodoData {
   Future<List<Todo>> todoDataList() async {
     List<Todo> todoList = []; //Store in it Todos data.
 
-     
- 
     var config = Configuration([TodoSchema.schema]);
     var realm = Realm(config);
 
-    
-
-    var todo =
-        realm.all<TodoSchema>(); //Read all data stored in object TodoSchema.
+    //Read all data stored in object TodoSchema.
+    var todo = realm.all<TodoSchema>();
 
     for (int index = 0; index < todo.length; index++) {
       todoList.add(Todo(

@@ -1,8 +1,6 @@
-class Project{
+class Project {
+  late String id;
+  late String name;
 
-late String id;
-late String name;
-
-Project( this.id, this.name);
-
+  Project(this.id, this.name);
 }

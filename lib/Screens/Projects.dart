@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:todos/Components/projectCard.dart';
 import 'package:todos/Model/project.dart';
@@ -9,7 +8,6 @@ import 'package:todos/Screens/Todos.dart';
 class Projects extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return ProjectsState();
   }
 }
@@ -37,7 +35,7 @@ class ProjectsState extends State<Projects> {
                 builder: (context, AsyncSnapshot<List<Project>> snapshot) {
                   if (!snapshot.hasData) {
                     return Container(
-                      width: MediaQuery.of(context).size.width,
+                        width: MediaQuery.of(context).size.width,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,

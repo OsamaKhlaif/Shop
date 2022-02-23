@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class ProjectCard extends StatelessWidget {
   var projectsName;
 
-  ProjectCard(
-    this.projectsName,
-  );
+  ProjectCard(this.projectsName);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +21,10 @@ class ProjectCard extends StatelessWidget {
                 width: 30,
                 height: 30,
                 margin: const EdgeInsets.all(10),
-                child: Icon(Icons.menu)),
+                child: const Icon(Icons.menu)),
             Text(
               projectsName,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
         ));

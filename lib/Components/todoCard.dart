@@ -37,13 +37,13 @@ class TodoCard extends StatelessWidget {
                              
                             ),
                             Container(
-                                padding: EdgeInsets.only(left: 5),
+                              width: 45,
+                              height: 45,
+                                margin: EdgeInsets.only(left: 5),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(50.0),
                                   child: Image.network(
                                     owner_image,
-                                    width: 45,
-                                    height: 45,
                                     fit: BoxFit.cover,
                                   ),
                                 ))

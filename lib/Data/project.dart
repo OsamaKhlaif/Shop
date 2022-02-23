@@ -16,9 +16,8 @@ class ProjectData {
     var config = Configuration([ProjectSchema.schema]);
     var realm = Realm(config);
 
+  //Read all data stored in object name ProjectSchema.
     var project = realm.all<ProjectSchema>();
-
-    //Read all data stored in object name ProjectSchema.
 
     for (int index = 0; index < project.length; index++) {
       projectsList.add(Project(project[index].id, project[index].name));
