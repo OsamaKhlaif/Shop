@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todos/Components/todoCard.dart';
+import 'package:todos/Components/todo_card.dart';
 import 'package:todos/Data/todo.dart';
 import 'package:todos/Model/todo.dart';
 
@@ -27,7 +27,7 @@ class Todos extends StatelessWidget {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
               height: (MediaQuery.of(context).size.height * 0.05),
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: const Text(
                 "Root Tasks",
                 style:

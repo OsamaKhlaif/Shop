@@ -32,14 +32,14 @@ class TodoCard extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.grey[500]),
-                              margin: EdgeInsets.only(top: 7, bottom: 7),
+                              margin: const EdgeInsets.only(top: 7, bottom: 7),
                               width: 3,
                              
                             ),
                             Container(
                               width: 45,
                               height: 45,
-                                margin: EdgeInsets.only(left: 5),
+                                margin: const EdgeInsets.only(left: 5),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(50.0),
                                   child: Image.network(

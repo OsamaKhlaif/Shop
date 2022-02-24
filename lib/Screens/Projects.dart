@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:todos/Components/projectCard.dart';
+import 'package:todos/Components/project_card.dart';
 import 'package:todos/Model/project.dart';
 import 'package:todos/Data/project.dart';
-import 'package:todos/Screens/Todos.dart';
+import 'package:todos/Screens/todos.dart';
 
 class Projects extends StatefulWidget {
   @override
@@ -25,7 +24,7 @@ class ProjectsState extends State<Projects> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Projects'),
+          title: const Text('Projects'),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
         ),
@@ -39,7 +38,7 @@ class ProjectsState extends State<Projects> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [CircularProgressIndicator()]));
+                            children: const [CircularProgressIndicator()]));
                   } else {
                     return ListView.builder(
                         itemCount: snapshot.data?.length,
