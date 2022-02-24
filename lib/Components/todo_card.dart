@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todos/Data/todo.dart';
+import 'package:todos/Screens/details_task.dart';
 
 class TodoCard extends StatelessWidget {
-  var name;
-  var status;
-  var owner_image;
+  var item;
+  var deleteTask;
 
-  TodoCard(this.name, this.status, this.owner_image);
+  TodoCard(this.item /*, this.deleteTask*/);
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +35,15 @@ class TodoCard extends StatelessWidget {
                                   color: Colors.grey[500]),
                               margin: const EdgeInsets.only(top: 7, bottom: 7),
                               width: 3,
-                             
                             ),
                             Container(
-                              width: 45,
-                              height: 45,
+                                width: 45,
+                                height: 45,
                                 margin: const EdgeInsets.only(left: 5),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(50.0),
                                   child: Image.network(
-                                    owner_image,
+                                    item.owner_image,
                                     fit: BoxFit.cover,
                                   ),
                                 ))
@@ -56,11 +56,11 @@ class TodoCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name,
+                            item.name,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            status,
+                            item.status,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey[500]),
@@ -80,14 +80,59 @@ class TodoCard extends StatelessWidget {
                       icon: const Icon(Icons.attach_file),
                       iconSize: 20,
                       color: Colors.grey,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return DetailsTask(item);
+                        }));
+                      },
                     ),
-                    IconButton(
-                      splashRadius: 25,
-                      icon: const Icon(Icons.more_vert),
+                    PopupMenuButton(
+                      //splashRadius: 25,
+                      icon: const Icon(
+                        Icons.more_vert,
+                        color: Colors.grey,
+                      ),
                       iconSize: 20,
-                      color: Colors.grey,
-                      onPressed: () {},
+                      itemBuilder: (context) {
+                        return List.generate(2, (index) {
+                          switch (index) {
+                            case 0:
+                              return PopupMenuItem(
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [Icon(Icons.edit), Text('Edit')]),
+                              );
+
+                            case 1:
+                              return PopupMenuItem(
+                                onTap:()=> deleteTask,
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Icon(
+                                        Icons.delete,
+                                        color: Colors.red,
+                                      ),
+                                      Text(
+                                        'Delete',
+                                        style: TextStyle(color: Colors.red),
+                                      )
+                                    ]),
+                              );
+
+                            default:
+                              return const PopupMenuItem(
+                                child: Text("Error"),
+                              );
+                          }
+                        });
+                      },
+                      //onPressed: () {
+                      //  return
+//
+                      //},
                     ),
                   ]))
             ]));
