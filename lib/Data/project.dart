@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:todos/Model/project.dart';
 import 'package:realm/realm.dart';
@@ -14,6 +16,17 @@ class ProjectData {
     var config = Configuration([ProjectSchema.schema]);
     var realm = Realm(config);
 
+var response = await http.get(Uri.parse('https://8414-185-114-120-159.eu.ngrok.io/projects'));
+//
+var projects = jsonDecode(response.body);
+for(int index=0; index<projects.length; index++){
+var project = ProjectSchema(projects[index]['id'],projects[index]['name']);
+//
+realm.write(() {
+  realm.add(project);
+});
+//
+}
   //Read all data stored in object name ProjectSchema.
     var project = realm.all<ProjectSchema>();
 
@@ -32,7 +45,7 @@ class ProjectData {
 //var projects = jsonDecode(response.body);
 
 //for(int index=0; index<projects.length; index++){
-//var project = ProjectSchema(projects[index].id,projects[index].name);
+//var project = ProjectSchema(projects[index]['id'],projects[index]['name']);
 //
 //realm.write(() {
 //  realm.add(project);

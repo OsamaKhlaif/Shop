@@ -3,22 +3,42 @@ import 'package:todos/Components/todo_card.dart';
 import 'package:todos/Data/todo.dart';
 import 'package:todos/Model/todo.dart';
 
-class Todos extends StatelessWidget {
+class Todos extends StatefulWidget {
   var title;
   var id;
   var parentTodo;
-  var todos = TodoData();
   var specialTodos = [];
 
   Todos(this.title, this.id, parentTodo) {
     this.parentTodo = (parentTodo == null ? "0" : parentTodo);
   }
+@override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return TodosState();
+  }
+ 
+}
+
+
+class TodosState extends State<Todos>  {
+  
+var todos = TodoData();
+
+  //deleteTask(task){
+  //  
+  //  setState(() {
+  //    todos.deleteTask(task);
+  //  });
+  // 
+  //  
+  //}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(widget.title),
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
         ),
@@ -49,29 +69,26 @@ class Todos extends StatelessWidget {
                       var lenghtTodosList = snapshot.data?.length;
 
                       for (var index = 0; index < lenghtTodosList!; index++) {
-                        if (snapshot.data?[index].project_id == id &&
-                            parentTodo == snapshot.data?[index].parent) {
-                          specialTodos.add(snapshot.data?[index]);
+                        if (snapshot.data?[index].project_id == widget.id &&
+                            widget.parentTodo == snapshot.data?[index].parent) {
+                          widget.specialTodos.add(snapshot.data?[index]);
                         }
                       }
 
                       return ListView.builder(
-                          itemCount: specialTodos.length,
+                          itemCount: widget.specialTodos.length,
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
                                 onTap: () {
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (_) {
                                     return Todos(
-                                        specialTodos[index].name,
-                                        specialTodos[index].project_id,
-                                        specialTodos[index].id);
+                                        widget.specialTodos[index].name,
+                                        widget.specialTodos[index].project_id,
+                                        widget.specialTodos[index].id);
                                   }));
                                 },
-                                child: TodoCard(
-                                    specialTodos[index].name,
-                                    specialTodos[index].status,
-                                    specialTodos[index].owner_image));
+                                child: TodoCard(widget.specialTodos[index]/*, deleteTask(widget.specialTodos[index])*/));
                           });
                     }
                   }))
