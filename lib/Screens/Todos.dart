@@ -12,30 +12,27 @@ class Todos extends StatefulWidget {
   Todos(this.title, this.id, parentTodo) {
     this.parentTodo = (parentTodo == null ? "0" : parentTodo);
   }
-@override
+  @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return TodosState();
   }
- 
 }
 
-
-class TodosState extends State<Todos>  {
-  
-var todos = TodoData();
-
-  //deleteTask(task){
-  //  
-  //  setState(() {
-  //    todos.deleteTask(task);
-  //  });
-  // 
-  //  
-  //}
+class TodosState extends State<Todos> {
+  var todos = TodoData();
+  var enter = 0;
 
   @override
   Widget build(BuildContext context) {
+    //deleteTask(task) {
+    //  if (task != null) {
+    //    setState(() {
+    //      todos.deleteTask(task);
+    //    });
+    //  }
+    //}
+
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
@@ -88,7 +85,10 @@ var todos = TodoData();
                                         widget.specialTodos[index].id);
                                   }));
                                 },
-                                child: TodoCard(widget.specialTodos[index]/*, deleteTask(widget.specialTodos[index])*/));
+                                child: TodoCard(widget.specialTodos[
+                                        index] /*,
+                                    deleteTask(widget.specialTodos[index])*/
+                                    ));
                           });
                     }
                   }))

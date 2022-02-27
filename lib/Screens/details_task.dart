@@ -100,7 +100,10 @@ class DetailsTask extends StatelessWidget {
                           padding: const EdgeInsets.all(10),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [const Text('Status:'), Text(item.status)]))
+                              children: [
+                                const Text('Status:'),
+                                Text(item.status)
+                              ]))
                     ])),
           )
         ],
